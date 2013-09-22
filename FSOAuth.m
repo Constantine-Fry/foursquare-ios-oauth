@@ -17,7 +17,6 @@
 #import "FSOAuth.h"
 
 #define kFoursquareOAuthRequiredVersion @"20130509"
-#define kFoursquareAppStoreURL @"https://itunes.apple.com/app/foursquare/id306934924?mt=8"
 
 @implementation FSOAuth
 
@@ -32,7 +31,6 @@
     }
     
     if (![sharedApplication canOpenURL:[NSURL URLWithString:@"foursquare://"]]) {
-        [sharedApplication openURL:[NSURL URLWithString:kFoursquareAppStoreURL]];
         return FSOAuthStatusErrorFoursquareNotInstalled;
     }
     
@@ -45,7 +43,6 @@
     NSURL *authURL = [NSURL URLWithString:[NSString stringWithFormat:@"foursquareauth://authorize?client_id=%@&v=%@&redirect_uri=%@", clientID, kFoursquareOAuthRequiredVersion, urlEncodedCallbackString]];
     
     if (![sharedApplication canOpenURL:authURL]) {
-        [sharedApplication openURL:[NSURL URLWithString:kFoursquareAppStoreURL]];
         return FSOAuthStatusErrorFoursquareOAuthNotSupported;
     }
     

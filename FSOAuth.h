@@ -59,8 +59,7 @@ typedef void (^FSTokenRequestCompletionBlock)(NSString *authToken, BOOL requestC
  @return Success or one of several failure codes. See enum definition above
  */
 + (FSOAuthStatusCode)authorizeUserUsingClientId:(NSString *)clientID
-                              callbackURIString:(NSString *)callbackURIString
-                           allowShowingAppStore:(BOOL)allowShowingAppStore;
+                              callbackURIString:(NSString *)callbackURIString;
 
 /**
  Given the OAuth response URL, will return the access code for the authorized user, or nil if there was an error in authorization.
